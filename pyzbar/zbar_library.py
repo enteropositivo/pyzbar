@@ -16,16 +16,10 @@ def _windows_fnames():
 
     This logic has its own function to make testing easier
     """
-    # 'libzbar-64.dll' and 'libzbar-32.dll' each have a dependent DLL -
-    # 'libiconv.dll' and 'libiconv-2.dll' respectively.
-    if sys.maxsize > 2**32:
-        # 64-bit
-        fname = 'libzbar-64.dll'
-        dependencies = ['libiconv.dll']
-    else:
-        # 32-bit
-        fname = 'libzbar-32.dll'
-        dependencies = ['libiconv-2.dll']
+
+    # ZBar v0.23 libraries
+    fname = 'libzbar-0.dll'
+    dependencies = ['libiconv-2.dll','libjpeg-8.dll', 'libwinpthread-1.dll'  ]
 
     return fname, dependencies
 
